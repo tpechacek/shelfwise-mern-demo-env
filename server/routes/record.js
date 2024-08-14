@@ -34,8 +34,6 @@ router.post("/", async (req, res) => {
     let newDocument = {
       name: req.body.name,
       genre: req.body.genre,
-      year_created: req.body.year_created,
-      rating: req.body.rating,
     };
     let collection = await db.collection("records");
     let result = await collection.insertOne(newDocument);
@@ -54,8 +52,6 @@ router.patch("/:id", async (req, res) => {
       $set: {
         name: req.body.name,
         genre: req.body.genre,
-        year_created: req.body.year_created,
-        rating: req.body.rating,
       },
     };
 
