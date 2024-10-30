@@ -35,6 +35,7 @@ router.post("/", async (req, res) => {
       name: req.body.name,
       genre: req.body.genre,
       yearPublished: req.body.yearPublished,
+      author: req.body.author,
     };
     let collection = await db.collection("records");
     let result = await collection.insertOne(newDocument);
@@ -54,6 +55,7 @@ router.patch("/:id", async (req, res) => {
         name: req.body.name,
         genre: req.body.genre,
         yearPublished:req.body.yearPublished,
+        author: req.body.author,
       },
     };
 

@@ -6,6 +6,7 @@ export default function Record() {
     name: "",
     genre: "",
     yearPublished: "",
+    author: "",
   });
   const [isNew, setIsNew] = useState(true);
   const params = useParams();
@@ -76,7 +77,7 @@ export default function Record() {
     } catch (error) {
       console.error('A problem occurred with your fetch operation: ', error);
     } finally {
-      setForm({ name: "", genre: "", yearPublished: "" });
+      setForm({ name: "", genre: "", yearPublished: "", author:"" });
       navigate("/");
     }
   }
@@ -98,7 +99,7 @@ export default function Record() {
               Place basic book information here.
             </p>
           </div>
-
+  
           <div className="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 ">
             <div className="sm:col-span-4">
               <label
@@ -159,6 +160,27 @@ export default function Record() {
                     placeholder="2006"
                     value={form.yearPublished}
                     onChange={(e) => updateForm({ yearPublished: e.target.value })}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="sm:col-span-4">
+              <label
+                htmlFor="author"
+                className="block text-sm font-medium leading-6 text-slate-900"
+              >
+                Author
+              </label>
+              <div className="mt-2">
+                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-slate-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <input
+                    type="text"
+                    name="author"
+                    id="author"
+                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    placeholder="Author's Name"
+                    value={form.author}
+                    onChange={(e) => updateForm({ author: e.target.value })}
                   />
                 </div>
               </div>
